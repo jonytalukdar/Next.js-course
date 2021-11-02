@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import MeetupDetail from '../../components/meetups/MeetupDetail';
 
 const MeetupDetailPage = () => {
   const router = useRouter();
@@ -6,10 +7,13 @@ const MeetupDetailPage = () => {
   const meetupId = router.query.meetupId;
 
   return (
-    <div>
-      <h1>this is details page</h1>
-      <h1>{meetupId}</h1>
-    </div>
+    <MeetupDetail
+      title="first Meetup"
+      image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg"
+      alt="first meetup"
+      address="Some city and some street"
+      description="This Is Description"
+    />
   );
 };
 
