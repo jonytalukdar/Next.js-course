@@ -17,4 +17,23 @@ const MeetupDetailPage = () => {
   );
 };
 
+export const getStaticProps = async (context) => {
+  //fetch data from api
+  const meetupId = context.params.meetupId;
+  console.log(meetupId);
+
+  return {
+    props: {
+      meetup: {
+        id: meetupId,
+        title: 'first meetup',
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
+        address: 'some address',
+        description: 'some description',
+      },
+    },
+  };
+};
+
 export default MeetupDetailPage;
