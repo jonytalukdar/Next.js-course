@@ -38,7 +38,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      meetup: {
+      meetupData: {
         id: meetupId,
         title: 'first meetup',
         image:
