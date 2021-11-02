@@ -8,10 +8,7 @@ function MeetupDetails(props) {
     <>
       <Head>
         <title>{props.meetupData.title}</title>
-        <meta
-          name="description"
-          content="Create your own meetups and feel amazing"
-        />
+        <meta name="description" content={props.meetupData.description} />
       </Head>
       <MeetupDetail
         image={props.meetupData.image}
@@ -25,7 +22,7 @@ function MeetupDetails(props) {
 
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    'mongodb+srv://meetupUser:ZnocMwIbS6Q2IL6E@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority'
+    `mongodb+srv://${process.env.REACT_APP_DATABASE_USERNAME}:${process.env.REACT_APP_DATABASE_PASSWORD}@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority`
   );
   const db = client.db();
 
@@ -49,7 +46,7 @@ export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
 
   const client = await MongoClient.connect(
-    'mongodb+srv://meetupUser:ZnocMwIbS6Q2IL6E@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority'
+    `mongodb+srv://${process.env.REACT_APP_DATABASE_USERNAME}:${process.env.REACT_APP_DATABASE_PASSWORD}@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority`
   );
   const db = client.db();
 

@@ -31,7 +31,7 @@ export const getStaticProps = async () => {
   // fetch data from api
 
   const client = await MongoClient.connect(
-    'mongodb+srv://meetupUser:ZnocMwIbS6Q2IL6E@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority'
+    `mongodb+srv://${process.env.REACT_APP_DATABASE_USERNAME}:${process.env.REACT_APP_DATABASE_PASSWORD}@cluster0.shsop.mongodb.net/meetups?retryWrites=true&w=majority`
   );
   const db = client.db();
 
